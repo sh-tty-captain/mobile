@@ -1,0 +1,29 @@
+import 'package:bekhterev_app/components/styles.dart';
+import 'package:flutter/material.dart';
+import 'package:another_flushbar/flushbar.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+
+import 'package:bekhterev_app/home/view/home_page.dart';
+import 'package:bekhterev_app/layers/ui/pages/profile.dart';
+import 'package:bekhterev_app/layers/ui/pages/notifications.dart';
+
+part 'icons.dart';
+part 'list_entry_layout.dart';
+part 'modal.dart';
+part 'modal_results.dart';
+part 'modal_description.dart';
+part 'procedure.dart';
+part 'cost.dart';
+part 'payment_method.dart';
+part 'flushbar.dart';
+part 'slidable.dart';
+part 'tab.dart';
+part 'input_default.dart';
+part 'input_white_label.dart';
+part 'dropdown_white.dart';
+part 'button.dart';
+part 'nav_bottom.dart';
+part 'page_container.dart';
+part 'search.dart';
+part 'typography.dart';

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "370818911412",
+    "project_id": "bekhterev-2f412",
+    "storage_bucket": "bekhterev-2f412.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370818911412:android:ba97c3a64be0af4fe89be1",
+        "android_client_info": {
+          "package_name": "com.mbs.bekhterev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370818911412-e29qu689patu1dqunlo9tkfs48t6relg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mbs.bekhterev",
+            "certificate_hash": "f43944b6fb6beffcc4dadf3781eff83f8cf4f627"
+          }
+        },
+        {
+          "client_id": "370818911412-ib1coj33ql09jdr6e794d56cn0pm1lg2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhkVI1gj41k9m4ixsv77Ss2SsskJbfIP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370818911412-ib1coj33ql09jdr6e794d56cn0pm1lg2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

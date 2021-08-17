@@ -1,0 +1,95 @@
+name: bekhterev_app
+description: A new Flutter project.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: '>=1.22.2'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  intl: ^0.17.0
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  liquid_progress_indicator: ^0.3.2
+
+  flutter_bloc: ^7.0.0
+  formz: ^0.4.0-nullsafety.0
+  equatable: ^2.0.0
+
+  flutter_slidable: ^0.6.0-nullsafety.0
+  flutter_staggered_animations: ^1.0.0
+  table_calendar: ^3.0.0-nullsafety.1
+  expandable: ^5.0.1
+  flutter_neat_and_clean_calendar: ^0.1.2+4
+  url_launcher: ^6.0.0-nullsafety.4
+  flutter_inappwebview: ^5.3.0
+  plugin_platform_interface: ^2.0.0
+  date_time_picker: ^2.0.0
+  another_flushbar: ^1.10.17
+  fluttertoast: ^8.0.1-nullsafety.0
+
+  http: ^0.13.1
+  json_annotation: ^4.0.1
+  xml2json: ^5.2.0
+  xml: ^5.1.1
+  dio: ^4.0.0
+
+  firebase_auth: ^3.0.1
+  firebase_database: ^7.0.0
+  firebase_core: ^1.2.0
+  cloud_firestore: ^2.2.0
+  firebase_messaging: ^10.0.0
+  firebase_auth_web: ^3.0.0
+
+  numeric_keyboard: ^1.0.0
+  mobx: ^2.0.0-nullsafety.6
+  flutter_mobx: ^2.0.0-nullsafety.3
+
+  pinput: ^1.2.0
+
+  pdf: ^3.4.2
+  path_provider: ^2.0.2
+  printing: ^5.4.3
+  universal_html: ^2.0.8
+
+  shared_preferences: ^2.0.6
+
+  flutter_signin_button: ^2.0.0
+  google_sign_in: ^5.0.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^0.1.0
+  flutter_launcher_icons: ^0.9.0
+
+transitive dependencies:
+  simple_gesture_detector: ^0.2.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/icons/
+    - assets/loading/logo.png
+    - assets/login/logo.png
+    - assets/balance/card.png
+    - assets/data/country_phone_codes.json
+
+flutter_icons:
+  android: 'launcher_icon'
+  ios: true
+  image_path: 'assets/icons/icon.png'
+
+flutter_intl:
+  enabled: true
+
+analyzer:
+  enable-experiment:
+    - non-nullable
