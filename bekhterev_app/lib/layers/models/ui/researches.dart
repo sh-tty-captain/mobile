@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class ResearchForm {
+  Profile? profile;
   Iterable<Specialization> specializations = const [];
   Iterable<Doctor> doctors = const [];
   Iterable<AvailableAppointment> availableAppointments = const [];
@@ -14,17 +15,31 @@ class ResearchFormRequest {
   String? appointmentId;
 }
 
-class AvailableAppointment extends Equatable {
+class Profile {
   final String id;
-  final String dateTime;
+  final String name;
+  final String tel;
+  final String telBase;
 
-  const AvailableAppointment({
+  const Profile({
     required this.id,
-    required this.dateTime,
+    required this.name,
+    required this.tel,
+    required this.telBase,
+  });
+}
+
+class Specialization extends Equatable {
+  final String id;
+  final String name;
+
+  const Specialization({
+    required this.id,
+    required this.name,
   });
 
   @override
-  List<Object?> get props => [id, dateTime];
+  List<Object?> get props => [id, name];
 }
 
 class Doctor extends Equatable {
@@ -40,17 +55,17 @@ class Doctor extends Equatable {
   List<Object?> get props => [id, name];
 }
 
-class Specialization extends Equatable {
+class AvailableAppointment extends Equatable {
   final String id;
-  final String name;
+  final String dateTime;
 
-  const Specialization({
+  const AvailableAppointment({
     required this.id,
-    required this.name,
+    required this.dateTime,
   });
 
   @override
-  List<Object?> get props => [id, name];
+  List<Object?> get props => [id, dateTime];
 }
 
 class ButtonSend {

@@ -46,4 +46,13 @@ class ResearchesAdapter {
       name: specialization.name,
     );
   }
+
+  Profile createProfile(domain.Profile profile) {
+    return Profile(
+      id: profile.id,
+      name: profile.name.toString(),
+      tel: profile.tel.toString(),
+      telBase: profile.telBase.toString(),
+    );
+  }
 }

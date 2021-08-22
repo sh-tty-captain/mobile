@@ -88,7 +88,7 @@ class ReceiptsServiceImpl implements ReceiptsService {
 
   @override
   Future<Iterable<Receipt>> getNewReceipts() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     return _data.where((it) => it.isNew);
   }
 
@@ -97,13 +97,13 @@ class ReceiptsServiceImpl implements ReceiptsService {
     final _old = _data.where((it) => !it.isNew);
     final _new = _data.where((it) => it.isNew);
 
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     return [..._new, ..._old];
   }
 
   @override
   Future<Iterable<Receipt>> searchReceipts(String key) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     return _data.where((receipt) =>
     receipt.title.toLowerCase().contains(key.toLowerCase()) &&
         receipt.procedure.toLowerCase().contains(key.toLowerCase()));

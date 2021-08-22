@@ -1,4 +1,5 @@
 import 'package:bekhterev_app/pages/questionnaire/view/testing_content.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,6 +12,7 @@ import 'package:bekhterev_app/adapters/ui/tests.dart';
 import 'package:bekhterev_app/layers/models/ui/tests.dart';
 import 'package:bekhterev_app/layers/services/impl/tests.dart';
 import 'package:bekhterev_app/layers/use_cases/impl/tests.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 TestsBloc _bloc(BuildContext context) => BlocProvider.of(context);
 
@@ -136,13 +138,28 @@ class _List extends StatelessWidget {
 }
 
 class _Tests extends StatelessWidget {
+  _launchURL() async {
+    const url = 'https://docs.google.com/forms/d/1d2HXpQIJ2Y_wTG0CinSQXXWKvUdPNrpRZT6kI-8-Y5Y/';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppListEntryLayout(
       sufix: AppFilledCircleIcon(icon: Icons.visibility),
       title: AppNormalHeader('Тест отношения к приему пищи'.toUpperCase()) ,
       subTitle: AppNormalText('Анонимное тестирование на 26 вопросов'),
-      onTap: () => Navigator.push(context, TestContent.route()),
+      onTap: () {
+        if (kIsWeb) {
+          _launchURL();
+        } else {
+          Navigator.push(context, TestContent.route());
+        }
+      },
     );
   }
 }

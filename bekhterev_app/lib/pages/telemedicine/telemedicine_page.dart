@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:bekhterev_app/components/components.dart';
 
@@ -62,6 +63,9 @@ class _TelemedicinePageState extends State<TelemedicinePage> {
         if (Platform.isAndroid) {
           webViewController?.reload();
         } else if (Platform.isIOS) {
+          webViewController?.loadUrl(
+              urlRequest: URLRequest(url: await webViewController?.getUrl()));
+        } else if (kIsWeb) {
           webViewController?.loadUrl(
               urlRequest: URLRequest(url: await webViewController?.getUrl()));
         }

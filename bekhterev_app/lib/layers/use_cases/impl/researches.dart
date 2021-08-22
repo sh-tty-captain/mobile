@@ -22,6 +22,12 @@ class ResearchesUseCaseImpl implements ResearchesUseCase {
   }
 
   @override
+  Future<Profile> getProfile() async {
+    final profile = await _researchesService.getProfile();
+    return _researchesAdapter.createProfile(profile);
+  }
+
+  @override
   Future<ResearchForm> getResearchForm() async {
     return _form;
   }

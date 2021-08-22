@@ -1,3 +1,17 @@
+class Profile {
+  final String id;
+  final String name;
+  final String tel;
+  final String telBase;
+
+  const Profile({
+    required this.id,
+    required this.name,
+    required this.tel,
+    required this.telBase,
+  });
+}
+
 class Specialization {
   final String id;
   final String name;

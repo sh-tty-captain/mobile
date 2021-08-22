@@ -37,7 +37,7 @@ class TestsServiceImpl implements TestsService {
 
   @override
   Future<Iterable<Test>> getNewTests() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     return _data.where((it) => it.isNew);
   }
 
@@ -46,13 +46,13 @@ class TestsServiceImpl implements TestsService {
     final _old = _data.where((it) => !it.isNew);
     final _new = _data.where((it) => it.isNew);
 
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     return [..._new, ..._old];
   }
 
   @override
   Future<Iterable<Test>> searchTests(String key) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     return _data.where((test) =>
     test.title.toLowerCase().contains(key.toLowerCase()) &&
         test.description.toLowerCase().contains(key.toLowerCase()));

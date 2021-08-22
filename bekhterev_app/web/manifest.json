@@ -1,11 +1,11 @@
 {
-    "name": "bekhterev_up",
-    "short_name": "bekhterev_up",
+    "name": "bekhterev_app",
+    "short_name": "bekhterev_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Mobile App for NMIC Bekhterev.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

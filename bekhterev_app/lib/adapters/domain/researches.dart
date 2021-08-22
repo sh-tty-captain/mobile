@@ -2,6 +2,9 @@ import 'package:bekhterev_app/layers/models/domain/researches.dart';
 import 'package:xml/xml.dart';
 import 'package:intl/intl.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 class ResearchesAdapter {
   Iterable<Specialization> createSpecializations(XmlDocument response) {
     final list = _getElementByPath(
@@ -112,5 +115,25 @@ class ResearchesAdapter {
     }
 
     return element;
+  }
+
+  Future<Profile> createProfile(profile) async {
+    final User user = FirebaseAuth.instance.currentUser!;
+
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection("users").get();
+
+    Map<String, dynamic> data = querySnapshot as Map<String, dynamic>;
+
+    final id = data['id'].toString();
+    final name = data['name'].toString();
+    final telBase = data['phone'].toString();
+    final tel = user.phoneNumber.toString();
+
+    return Profile(
+      id: id,
+      name: name,
+      tel: tel,
+      telBase: telBase,
+    );
   }
 }

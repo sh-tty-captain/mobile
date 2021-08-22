@@ -42,13 +42,13 @@ class ResultsServiceImpl implements ResultsService {
 
   @override
   Future<Iterable<Result>> getResults() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     return _data;
   }
 
   @override
   Future<Iterable<Result>> searchResults(String key) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     return _data.where((result) =>
     result.title.toLowerCase().contains(key.toLowerCase()) &&
         result.fullDescription.toLowerCase().contains(key.toLowerCase()) &&

@@ -1,6 +1,8 @@
 import 'package:bekhterev_app/layers/models/domain/researches.dart';
 
 abstract class ResearchesService {
+  Future<Profile> getProfile();
+
   Future<Iterable<Specialization>> getSpecializations();
 
   Future<Iterable<Doctor>> getDoctorsBySpecializationId(String docId);

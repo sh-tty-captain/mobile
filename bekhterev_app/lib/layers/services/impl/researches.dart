@@ -10,9 +10,15 @@ class ResearchesServiceImpl implements ResearchesService {
   ResearchesServiceImpl(this._apiGateway, this._adapter);
 
   @override
-  Future<Iterable<AvailableAppointment>> getAvailableAppointmentsForDoctor(String docId) async {
-    final appointments = await _apiGateway.getAvaibleAppointmentsList(docId);
-    return _adapter.createAvaibleAppointments(appointments);
+  Future<Profile> getProfile() async {
+    final profile = await _apiGateway.getProfile();
+    return _adapter.createProfile(profile);
+  }
+
+  @override
+  Future<Iterable<Specialization>> getSpecializations() async {
+    final specialization = await _apiGateway.getSpesialityList();
+    return _adapter.createSpecializations(specialization);
   }
 
   @override
@@ -22,8 +28,8 @@ class ResearchesServiceImpl implements ResearchesService {
   }
 
   @override
-  Future<Iterable<Specialization>> getSpecializations() async {
-    final specialization = await _apiGateway.getSpesialityList();
-    return _adapter.createSpecializations(specialization);
+  Future<Iterable<AvailableAppointment>> getAvailableAppointmentsForDoctor(String docId) async {
+    final appointments = await _apiGateway.getAvaibleAppointmentsList(docId);
+    return _adapter.createAvaibleAppointments(appointments);
   }
 }

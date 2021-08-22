@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:bekhterev_app/components/components.dart';
 import 'package:bekhterev_app/layers/ui/pages/tests.dart';
 import 'package:bekhterev_app/pages/balance/balance_page.dart';
 import 'package:bekhterev_app/layers/ui/pages/researches.dart';
 import 'package:bekhterev_app/pages/telemedicine/telemedicine_page.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
   final List<String> list = List.generate(59, (index) => "Text $index");
@@ -47,6 +51,18 @@ class HomePage extends StatelessWidget {
 }
 
 class _Body extends StatelessWidget {
+  _launchURL() async {
+    const url = 'https://telemed.bekhterev.ru/';
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        headers: { 'Authorization': 'test:test' },
+      );
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppPageContainer(
@@ -80,7 +96,13 @@ class _Body extends StatelessWidget {
                 sufix: AppFilledCircleIcon(icon: Icons.visibility),
                 title: AppNormalHeader('Телемедицинская консультация'.toUpperCase()),
                 subTitle: AppNormalText('Онлайн видеоконференция с лечащим врачом'),
-                onTap: () => Navigator.push(context, TelemedicinePage.route()),
+                onTap: () {
+                  if (kIsWeb) {
+                    _launchURL();
+                  } else {
+                    Navigator.push(context, TelemedicinePage.route());
+                  }
+                },
               ),
             ],
           ),

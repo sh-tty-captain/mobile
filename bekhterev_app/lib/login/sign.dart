@@ -135,93 +135,6 @@ class LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (kIsWeb) {
-      return WillPopScope(
-        onWillPop: _onWillPop,
-        child: Scaffold(
-          key: globalKey,
-          body: Align(
-            alignment: Alignment(0, -1 / 3),
-            child: SingleChildScrollView(
-              padding: EdgeInsets.all(12),
-              child: SizedBox(
-                width: double.infinity,
-                child: SafeArea(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        width: 96,
-                        height: 148,
-                        margin: EdgeInsets.only(bottom: 40),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/login/logo.png',
-                            ),
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 300.0,
-                        child: InputDefaultLayout(
-                          controller: _phoneNumberController,
-                          formatter: <TextInputFormatter>[
-                            FilteringTextInputFormatter.digitsOnly,
-                            _mobileFormatter,
-                          ],
-                          label: 'Номер телефона',
-                          error: _validate ? 'Поле не может быть пустым' : null,
-                          type: TextInputType.phone,
-                          icon: Icon(
-                            Icons.call,
-                            color: Color(0xF22280CE),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 10.0),
-                      ButtonLayout(
-                          title: 'Получить код',
-                          size: Size(300, 50),
-                          onTap: () {
-                            _phoneNumberController.text.isEmpty ? _validate = true : _verifyWebPhoneNumber();
-                          }
-                      ),
-                      SizedBox(height: 10.0),
-                      Container(
-                        child: ButtonLayout(
-                          size: Size(300, 50),
-                          title: 'Войти через Госулуги',
-                          // ignore: unnecessary_null_comparison
-                          onTap: null,
-                          color: Color(0xFF2280CE),
-                          tapColor: Color(0xFF3599EC),
-                          textStyle: TextStyle(fontSize: 16.0),
-                        ),
-                      ),
-                      SizedBox(height: 10.0),
-                      Visibility(
-                        visible: _message != null,
-                        child: Container(
-                          alignment: Alignment.center,
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Text(
-                            _message,
-                            style: const TextStyle(color: Color(0xFFD31717)),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      );
-    }
-
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
@@ -250,7 +163,7 @@ class LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Container(
-                      width: 235.0,
+                      width: 260.0,
                       child: InputDefaultLayout(
                         controller: _phoneNumberController,
                         formatter: <TextInputFormatter>[
@@ -269,10 +182,15 @@ class LoginPageState extends State<LoginPage> {
                     SizedBox(height: 10.0),
                     ButtonLayout(
                         title: 'Получить код',
+                        size: Size(260, 50),
                         onTap: () {
-                          _verifyPhoneNumber();
+                          if (kIsWeb) {
+                            _phoneNumberController.text.isEmpty ? _validate = true : _verifyWebPhoneNumber();
+                          } else {
+                            _verifyPhoneNumber();
 
-                          _phoneNumberController.text.isEmpty ? _validate = true : otpDialogBox(context).then((value) {});
+                            _phoneNumberController.text.isEmpty ? _validate = true : otpDialogBox(context).then((value) {});
+                          }
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -284,6 +202,7 @@ class LoginPageState extends State<LoginPage> {
                         color: Color(0xFF2280CE),
                         tapColor: Color(0xFF3599EC),
                         textStyle: TextStyle(fontSize: 16.0),
+                        size: Size(260, 50),
                       ),
                     ),
                     SizedBox(height: 10.0),

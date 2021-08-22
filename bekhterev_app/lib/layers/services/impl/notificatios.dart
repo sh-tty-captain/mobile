@@ -50,13 +50,13 @@ class NotificationsServiceImpl implements NotificationsService {
     final _old = _data.where((it) => !it.isNew);
     final _new = _data.where((it) => it.isNew);
 
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     return [..._new, ..._old];
   }
 
   @override
   Future<Iterable<NotificationInfo>> searchNotifications(String key) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     return _data.where((notification) =>
         notification.title.toLowerCase().contains(key.toLowerCase()) &&
         notification.fullDescription.toLowerCase().contains(key.toLowerCase()) &&

@@ -5,6 +5,8 @@ abstract class ResearchesUseCase {
 
   Future<ResearchForm> getResearchForm();
 
+  Future<Profile> getProfile();
+
   Future<Specialization> getSpecialization();
 
   Future<void> selectSpecialization(String id);

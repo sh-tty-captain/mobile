@@ -185,6 +185,23 @@ class _Form extends StatelessWidget {
 }
 
 class _Name extends StatefulWidget {
+  // final ResearchForm data;
+
+  // const _Name(this.data, {Key? key}) : super(key: key);
+  // @override
+  // Widget build(BuildContext context) {
+  //   if (data.profile?.tel == data.profile?.telBase) {
+  //     var name = data.profile?.name;
+  //     final tel = data.profile?.tel;
+
+  //     return InputWhiteLayout(
+  //       label: 'Ваше имя',
+  //       placeholder: tel.toString(),
+  // );
+  // } else {
+  // return SizedBox();
+  // }
+
   @override
   _NameState createState() => _NameState();
 }
